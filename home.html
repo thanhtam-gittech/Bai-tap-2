@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiddler on the Roof Jr. - Slide 3</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      border: 1px solid #333;
+      padding: 15px;
+    }
+    .header img {
+      display: block;
+      width: 50%;
+      height: 150px;
+    }
+     hr {
+      border: none;
+      border-top: 1px solid #686868; 
+      margin: 15px 0;
+    }
+    .nav {
+      margin: 15px 0;
+      text-align: left ;
+    }
+    .nav button {
+      background: none;
+      border: none;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+    .nav button img {
+      width: 40px;
+      height: 40px;
+    }
+    .home-c {
+      margin-right: 50px; 
+    }
+    .slide {
+      text-align: left;
+    }
+    .slide img {
+      width: 45%;
+      height: auto;
+      border: 2px solid #333;
+    }
+    .thumbnails {
+      text-align: left;
+      margin: 15px 0;
+    }
+    .thumbnails img {
+      width: 100px;
+      height: auto;
+      margin: 5px;
+      border: 2px solid #999;
+      pointer-events: none; /* thumbnail không bấm được */
+    }
+  </style>
+</head>
+<body>
+  <!-- Banner -->
+  <div class="header">
+    <img src="file:///C:/Users/ASUS/AppData/Local/Temp/Rar$DIa3508.18145/fiddler.jpg" alt="Fiddler on the Roof Jr.">
+    <hr>
+  </div>
+
+  <!-- Thanh điều hướng -->
+  <div class="nav">
+    <a href="index.html" class="home-c"><img src="file:///C:/Users/ASUS/AppData/Local/Temp/Rar$DIa3508.32941/home.jpg" alt="Home"></a>
+    <button onclick="showSlide(i)"><img src="file:///C:/Users/ASUS/AppData/Local/Temp/Rar$DIa3508.37349/start.jpg" alt="Start"></button>
+    <button onclick="prevSlide()"><img src="file:///C:/Users/ASUS/AppData/Local/Temp/Rar$DIa3508.18876/back.jpg" alt="Back"></button>
+   <button onclick="nextSlide()"><img src="file:///C:/Users/ASUS/AppData/Local/Temp/Rar$DIa3508.25768/forward.jpg" alt="Next"></button>
+    <button onclick="showSlide(slides.length)"><img src="file:///C:/Users/ASUS/AppData/Local/Temp/Rar$DIa3508.31619/end.jpg" alt="end"></button>
+  </div>
+
+  <!-- thumbnails -->
+   <div class="thumbnails">
+    <img src="file:///C:/Users/ASUS/AppData/Local/Temp/Rar$DIa3508.42700/thumb1.jpg" alt="Slide 1">
+    <img src="file:///C:/Users/ASUS/AppData/Local/Temp/Rar$DIa3508.183/thumb2.jpg" alt="Slide 2">
+    <img src="file:///C:/Users/ASUS/AppData/Local/Temp/Rar$DIa3508.8403/thumb3.jpg" alt="Slide 3">
+    <img src="file:///C:/Users/ASUS/AppData/Local/Temp/Rar$DIa3508.10785/thumb4.jpg" alt="Slide 4">
+    <img src="file:///C:/Users/ASUS/AppData/Local/Temp/Rar$DIa3508.12108/thumb5.jpg" alt="Slide 5">
+    <img src="file:///C:/Users/ASUS/AppData/Local/Temp/Rar$DIa3508.13191/thumb6.jpg" alt="Slide 6">
+  </div>
+  <hr>
+  <div class="slide">
+    <img id="mainImage" src="file:///C:/Users/ASUS/AppData/Local/Temp/Rar$DIa3508.8620/slide1.jpg" alt="Slide 1">
+  </div>
+   <!-- ảnh -->
+  <script>
+    const slides = [
+      { src: "file:///C:/Users/ASUS/AppData/Local/Temp/Rar$DIa3508.8620/slide1.jpg" },
+      { src: "file:///C:/Users/ASUS/AppData/Local/Temp/Rar$DIa3508.12038/slide2.jpg"},
+{ src: "file:///C:/Users/ASUS/AppData/Local/Temp/Rar$DIa3508.13257/slide3.jpg" },
+      { src: "file:///C:/Users/ASUS/AppData/Local/Temp/Rar$DIa3508.14446/slide4.jpg" },
+      { src: "file:///C:/Users/ASUS/AppData/Local/Temp/Rar$DIa3508.15744/slide5.jpg"},
+      { src: "file:///C:/Users/ASUS/AppData/Local/Temp/Rar$DIa3508.18061/slide6.jpg"}
+    ];
+
+    let currentIndex = 0;
+
+   function showSlide(index) {
+      if (index < 1) index = 1;
+      if (index > slides.length) index = slides.length;
+      currentIndex = index - 1;
+      document.getElementById("mainImage").src = slides[currentIndex].src;
+    }
+
+    function nextSlide() {
+      if (currentIndex < slides.length - 1) {
+        showSlide(currentIndex + 2); 
+      }
+    }
+
+    function prevSlide() {
+      if (currentIndex > 0) {
+        showSlide(currentIndex);
+      }
+    }
+  </script>
+</body>
+</html>
